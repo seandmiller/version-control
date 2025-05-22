@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version Control</title>
+    <link rel="stylesheet" href="stylesf/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🔄 Version Control</h1>
+        
+        <div class="input-group">
+            <label for="url" class="input-label">Website URL</label>
+            <input 
+                type="url" 
+                id="url" 
+                class="url-input"
+                placeholder="https://example.com"
+                autocomplete="url"
+                spellcheck="false"
+            >
+        </div>
+
+        <button id="fetch-btn" class="button button-primary">Create Editable Version</button>
+        
+        <button id="advanced-options-toggle" class="button button-text">Show Advanced Options</button>
+
+        <div id="advanced-options-panel" class="advanced-panel">
+            <div class="panel-section">
+                <div class="panel-title">Capture Method</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <label>
+                            <input type="radio" name="capture-type" value="static" checked>
+                            Static Capture
+                        </label>
+                        <div class="option-description">Fast HTML capture, good for most websites</div>
+                    </div>
+                    <div class="radio-option">
+                        <label>
+                            <input type="radio" name="capture-type" value="dynamic">
+                            Dynamic Capture
+                        </label>
+                        <div class="option-description">Waits for JavaScript to load before making editable</div>
+                    </div>
+                    <div class="radio-option">
+                        <label>
+                            <input type="radio" name="capture-type" value="iframe">
+                            Interactive Capture
+                        </label>
+                        <div class="option-description">Opens iframe capture tool for cross-origin sites</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <div class="input-with-label">
+                    <label for="wait-time">Wait time (seconds):</label>
+                    <input type="number" id="wait-time" min="0" max="30" value="2">
+                </div>
+            </div>
+        </div>
+
+        <div id="error-msg" class="error-message" style="display: none;"></div>
+
+        <div class="info-section">
+            <div class="features">
+                <div class="features-title">Features:</div>
+                <ul class="features-list">
+                    <li>Click on any text to edit it directly</li>
+                    <li>Save your edited version as an HTML file</li>
+                    <li>Print the edited page</li>
+                    <li>Toggle editing mode on/off</li>
+                </ul>
+            </div>
+
+            <div class="tips">
+                <div class="tips-title">Tips:</div>
+                <ul class="tips-list">
+                    <li>Static capture works for most websites</li>
+                    <li>Use Dynamic capture for JavaScript-heavy sites</li>
+                    <li>Interactive capture helps with cross-origin restrictions</li>
+                    <li>Increase wait time for slow-loading pages</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <div id="loading-text" class="loading-text">Creating editable copy...</div>
+    </div>
+
+    <!-- Load scripts in correct order -->
+    <script src="scripts/config.js"></script>
+    <script src="scripts/url-utils.js"></script>
+    <script src="scripts/dom-utils.js"></script>
+    <script src="scripts/network.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

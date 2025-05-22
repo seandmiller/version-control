@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Editor</title>
+  <link rel="stylesheet" href="stylesf/editor-styles.css">
+</head>
+<body>
+  <div class="editor-container">
+    <div class="toolbar">
+      <div class="toolbar-buttons">
+        <button id="preview-btn" class="toolbar-button">Preview Mode</button>
+        <button id="save-btn" class="toolbar-button">Save to File</button>
+        <button id="format-btn" class="toolbar-button">Format HTML</button>
+        <span id="error-display" class="editor-error"></span>
+      </div>
+      <div id="url-display" class="url-display">HTML Editor</div>
+    </div>
+    
+    <textarea id="editor-textarea" class="editor-textarea" spellcheck="false"></textarea>
+    
+    <div class="paste-instructions">
+      <h2>Paste HTML Content Here</h2>
+      <p>Right-click on the webpage you want to edit, select "View Page Source", and copy all content</p>
+      <p>Then press Ctrl+V or Command+V to paste it here</p>
+    </div>
+    
+    <div class="status-bar">
+      <div id="char-count">Characters: 0</div>
+      <div id="editor-mode">Edit Mode</div>
+    </div>
+  </div>
+  
+  <script src="scripts/editor.js"></script>
+</body>
+</html>
